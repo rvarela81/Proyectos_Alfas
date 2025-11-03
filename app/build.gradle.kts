@@ -4,6 +4,14 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+dependencies {
+    implementation("androidx.compose.material3:material3:1.4.0")
+    implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha07")
+    implementation ("androidx.compose.material3:material3")
+    implementation ("androidx.compose.material:material-icons-extended")
+}
+
 android {
     namespace = "com.alfa.tienda"
     compileSdk = 36
@@ -37,6 +45,11 @@ android {
     buildFeatures {
         compose = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.1.1"
+    }
+
 }
 
 dependencies {

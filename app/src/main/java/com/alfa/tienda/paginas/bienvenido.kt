@@ -8,33 +8,40 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.intl.Locale
+import androidx.compose.ui.text.substring
+import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.alfa.tienda.componentes.Boton
+import com.alfa.tienda.R
 import com.alfa.tienda.componentes.CampoImagen
-import com.alfa.tienda.componentes.CampoTexto
 import com.alfa.tienda.componentes.Etiqueta
-import java.sql.DriverManager.println
+import com.alfa.tienda.componentes.DatosUsuario
+import com.alfa.tienda.componentes.datosUsuario
+
 
 @Composable
-fun PagBienvenido() {
+fun PagBienvenido(datosUsuario: DatosUsuario) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.LightGray)
     ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().
+            background(color = MaterialTheme.colorScheme.background)
 
         ) {
             Spacer(modifier = Modifier.weight(0.02f))
             Row(modifier = Modifier) {
-                Etiqueta("BIENVENIDO", color = Color.Black, fontSize = 35.sp)
+                Etiqueta(
+                    titulo = "BIENVENIDO",
+                    color = MaterialTheme.colorScheme.primary,
+                    fontSize = 45.sp)
             }
 
             Spacer(modifier = Modifier.weight(0.2f))
@@ -46,13 +53,19 @@ fun PagBienvenido() {
                 // centra horizontalmente
             ) {
 
-                CampoImagen(Usuario = "Usuario")
+                CampoImagen(Usuario = datosUsuario.sexo)
             }
             Spacer(modifier = Modifier.weight(0.2f))
 
 
             Row {
-                Etiqueta("Nombre Usuario", color = Color.Blue, fontSize = 25.sp)
+
+                Etiqueta(
+                    titulo = (
+                            datosUsuario.nombre + " " +datosUsuario.apellidos.get(0)).toUpperCase(Locale.current),
+                    color = MaterialTheme.colorScheme.secondary,
+                    fontSize = MaterialTheme.typography.bodyLarge.fontSize
+                )
             }
 
 
@@ -64,8 +77,10 @@ fun PagBienvenido() {
 
 }
 
+
+
 @Preview
 @Composable
 fun prePagBienvenido() {
-    PagBienvenido()
+    PagBienvenido(datosUsuario)
 }

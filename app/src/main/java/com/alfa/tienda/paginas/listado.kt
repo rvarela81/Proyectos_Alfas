@@ -66,21 +66,21 @@ fun pagListado(productos: Array<Productos>) {
 
 
 
-            Slider(
-                value = valor,
-                onValueChange = { valor = it },
-                valueRange = 0f..1f,
-                steps = productos.size - 1,
-                onValueChangeFinished = {
-                    valor = 0f
-                },
-
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .width(40.dp)
-                    .rotate(90f)
-                    .padding(vertical = 16.dp)
-            )
+//            Slider(
+//                value = valor,
+//                onValueChange = { valor = it },
+//                valueRange = 0f..1f,
+//                steps = productos.size - 1,
+//                onValueChangeFinished = {
+//                    valor = 0f
+//                },
+//
+//                modifier = Modifier
+//                    .fillMaxHeight()
+//                    .width(40.dp)
+//                    .rotate(90f)
+//                    .padding(vertical = 16.dp)
+//            )
         }
     }
 }

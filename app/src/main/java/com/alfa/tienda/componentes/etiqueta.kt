@@ -10,6 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
@@ -18,11 +19,12 @@ import androidx.compose.ui.unit.sp
 fun Etiqueta(
     titulo: String,
     color: Color = MaterialTheme.colorScheme.onBackground,
-    fontSize: TextUnit = 24.sp
+    fontSize: TextUnit = 24.sp,
+    modifier: Modifier = Modifier.fillMaxWidth()
 ) {
     Text(
         text = titulo,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier,
         textAlign = TextAlign.Center,
         style = MaterialTheme.typography.bodyLarge.copy(
             color = color,
@@ -31,4 +33,10 @@ fun Etiqueta(
             fontFamily = FontFamily.Serif
         )
     )
+}
+
+@Preview
+@Composable
+fun PreviewVista(){
+    Etiqueta("bota")
 }
